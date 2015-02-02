@@ -1,0 +1,12 @@
+default
+=======
+
+This project is a starting point for all my CMake based projects.  It provides stand gnu-style building as well as integration with emacs
+
+Adding project to EDE
+---------------------
+
+Add this to your .emacs
+
+    (when (file-exists-p "ROOT_PROJECT_DIR/CMakeLists.txt")
+      (load-path "ROOT_PROJECT_DIR/tools/emacs/project.el"))
