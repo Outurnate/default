@@ -10,6 +10,7 @@ int main()
   test();
 
   cout << "default" << endl;
+  test();
 
   return 0;
 }
