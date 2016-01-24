@@ -4,6 +4,7 @@ addons:
     packages:
       - cmake
       - cmake-data
+      - libcurl3-dev
     sources:
       - george-edison55-precise-backports
 script: ./configure && cmake --build build
