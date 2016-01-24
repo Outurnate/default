@@ -1,12 +1,6 @@
 # Joseph D. Copyright (C) 2015. GNU GPLv3.
 
-CMAKE_MINIMUM_REQUIRED(VERSION 3.2.0 FATAL_ERROR)
-
-include("cmake/HunterGate.cmake")
-HunterGate(
-    URL "https://github.com/ruslo/hunter/archive/v0.12.39.tar.gz"
-    SHA1 "587bc8f6278f2b09ec8759d2b6a2f8d828c30f49"
-)
+CMAKE_MINIMUM_REQUIRED(VERSION 2.6.2 FATAL_ERROR)
 
 #
 # Project Properties
@@ -39,8 +33,8 @@ SET(EXECUTABLE_OUTPUT_PATH "${MAINFOLDER}/bin")
 #
 # Locate Project Prerequisites 
 #
-hunter_add_package(Boost COMPONENTS system filesystem program_options)
-find_package(Boost CONFIG REQUIRED system filesystem program_options)
+FIND_PACKAGE(Boost 1.40 COMPONENTS system filesystem program_options REQUIRED)
+INCLUDE_DIRECTORIES(${Boost_INCLUDE_DIR})
 
 #
 # Configure Files

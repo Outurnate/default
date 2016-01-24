@@ -1,15 +1,15 @@
-language: python
-sudo: required
+language: cpp
 addons:
   apt:
     packages:
       - cmake
       - cmake-data
-      - libcurl4-openssl-dev
     sources:
       - george-edison55-precise-backports
       - ubuntu-toolchain-r-test
 install:
-  - sudo apt-get update
-  - sudo apt-get install libcurl3-dev
+  - POLLY_VERSION="0.6.2"
+  - wget "https://github.com/ruslo/polly/archive/v${POLLY_VERSION}.tar.gz"
+  - tar xf "v${POLLY_VERSION}.tar.gz"
+  - export PATH="`pwd`/polly-${POLLY_VERSION}/bin:${PATH}"
 script: ./configure && cmake --build build
