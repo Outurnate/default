@@ -3,6 +3,7 @@ addons:
   apt:
     packages:
       - cmake
+      - cmake-data
     sources:
       - george-edison55-precise-backports
 script: ./configure && cmake --build build
