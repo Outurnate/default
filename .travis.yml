@@ -8,4 +8,6 @@ addons:
       - libcurl4-openssl-dev
     sources:
       - george-edison55-precise-backports
+install:
+  - sudo apt-get install libcurl3-dev
 script: ./configure && cmake --build build
