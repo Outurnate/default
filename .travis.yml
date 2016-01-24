@@ -4,5 +4,5 @@ addons:
     packages:
       - cmake
     sources:
-      - kalakris-cmake
+      - george-edison55-precise-backports
 script: ./configure && cmake --build build
