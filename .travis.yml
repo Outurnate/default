@@ -10,5 +10,6 @@ addons:
       - george-edison55-precise-backports
       - ubuntu-toolchain-r-test
 install:
+  - sudo apt-get update
   - sudo apt-get install libcurl3-dev
 script: ./configure && cmake --build build
