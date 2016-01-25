@@ -4,6 +4,8 @@ addons:
     packages:
       - cmake
       - cmake-data
+      - libboost-all-dev
+      - ninja-build
     sources:
       - george-edison55-precise-backports
       - ubuntu-toolchain-r-test
@@ -11,5 +13,6 @@ install:
   - POLLY_VERSION="0.6.2"
   - wget "https://github.com/ruslo/polly/archive/v${POLLY_VERSION}.tar.gz"
   - tar xf "v${POLLY_VERSION}.tar.gz"
-  - export PATH="`pwd`/polly-${POLLY_VERSION}/bin:${PATH}"
-script: ./configure && cmake --build build
+  - export POLLY_ROOT="`pwd`/polly-${POLLY_VERSION}"
+  - export PATH="${POLLY_ROOT}/bin:${PATH}"
+script: ./configure -DCMAKE_TOOLCHAIN_FILE=${POLLY_ROOT}/${BUILD_TOOLCHAIN}.cmake -GNinja && ninja -Cbuild
