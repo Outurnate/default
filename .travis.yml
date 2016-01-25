@@ -28,6 +28,6 @@ install:
   - cmake .
   - make
   - ls -Rlah .
-  - cp * ..
+  - cp cmake_install.cmake libgtest.a libgtest_main.a ..
   - cd "${TRAVIS_BUILD_DIR}"
 script: ./configure -DCMAKE_BUILD_TYPE=${BUILD_TYPE} && make -Cbuild
