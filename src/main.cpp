@@ -1,10 +1,11 @@
 #include <iostream>
+#include "App.hpp"
 
 using namespace std;
 
 int main()
 {
-  cout << "default" << endl;
+  cout << getRandomNumber() << endl;
 
   return 0;
 }

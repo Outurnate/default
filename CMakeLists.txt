@@ -29,6 +29,7 @@ SET(CMAKE_VERBOSE_MAKEFILE 0) # Use 1 for debugging, 0 for release
 #
 SET(MAINFOLDER ${PROJECT_SOURCE_DIR})
 SET(EXECUTABLE_OUTPUT_PATH "${MAINFOLDER}/bin")
+INCLUDE_DIRECTORIES(${MAINFOLDER}/include)
 
 #
 # Locate Project Prerequisites 
