@@ -1,4 +1,6 @@
 language: cpp
+env:
+  - BUILD_TOOLCHAIN=default
 addons:
   apt:
     packages:
