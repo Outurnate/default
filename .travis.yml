@@ -1,27 +1,18 @@
 language: cpp
-env:
-  - BUILD_TOOLCHAIN=default
-  - BUILD_TOOLCHAIN=clang-lto
-  - BUILD_TOOLCHAIN=gcc-4-8
-  - BUILD_TOOLCHAIN=analyze
-  - BUILD_TOOLCHAIN=sanitize-address
-  - BUILD_TOOLCHAIN=sanitize-leak
-  - BUILD_TOOLCHAIN=sanitize-memory
-  - BUILD_TOOLCHAIN=sanitize-thread
+compiler:
+  - clang
+  - gcc
 addons:
   apt:
     packages:
       - cmake
       - cmake-data
       - libboost-all-dev
-      - ninja-build
+      - g++-4.8
+      - libstdc++-4.8-dev
+      - clang-3.6
     sources:
       - george-edison55-precise-backports
       - ubuntu-toolchain-r-test
-install:
-  - POLLY_VERSION="0.6.2"
-  - wget "https://github.com/ruslo/polly/archive/v${POLLY_VERSION}.tar.gz"
-  - tar xf "v${POLLY_VERSION}.tar.gz"
-  - export POLLY_ROOT="`pwd`/polly-${POLLY_VERSION}"
-  - export PATH="${POLLY_ROOT}/bin:${PATH}"
+      - llvm-toolchain-precise-3.6
 script: ./configure -DCMAKE_TOOLCHAIN_FILE=${POLLY_ROOT}/${BUILD_TOOLCHAIN}.cmake && make -Cbuild
