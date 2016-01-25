@@ -24,4 +24,4 @@ install:
   - tar xf "v${POLLY_VERSION}.tar.gz"
   - export POLLY_ROOT="`pwd`/polly-${POLLY_VERSION}"
   - export PATH="${POLLY_ROOT}/bin:${PATH}"
-script: ./configure -DCMAKE_TOOLCHAIN_FILE=${POLLY_ROOT}/${BUILD_TOOLCHAIN}.cmake -GNinja && ninja -Cbuild
+script: ./configure -DCMAKE_TOOLCHAIN_FILE=${POLLY_ROOT}/${BUILD_TOOLCHAIN}.cmake && make -Cbuild
