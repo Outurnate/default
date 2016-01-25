@@ -1,6 +1,13 @@
 language: cpp
 env:
   - BUILD_TOOLCHAIN=default
+  - BUILD_TOOLCHAIN=clang-lto
+  - BUILD_TOOLCHAIN=gcc-4-8
+  - BUILD_TOOLCHAIN=analyze
+  - BUILD_TOOLCHAIN=sanitize-address
+  - BUILD_TOOLCHAIN=sanitize-leak
+  - BUILD_TOOLCHAIN=sanitize-memory
+  - BUILD_TOOLCHAIN=sanitize-thread
 addons:
   apt:
     packages:
