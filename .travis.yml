@@ -1,4 +1,7 @@
 language: cpp
+env:
+  - BUILD_TYPE=DEBUG
+  - BUILD_TYPE=RELEASE
 compiler:
   - clang
   - gcc
@@ -16,4 +19,4 @@ addons:
       - george-edison55-precise-backports
       - ubuntu-toolchain-r-test
       - llvm-toolchain-precise-3.6
-script: ./configure -GNinja && ninja -Cbuild
+script: ./configure -GNinja -DCMAKE_BUILD_TYPE=${BUILD_TYPE} && ninja -Cbuild
