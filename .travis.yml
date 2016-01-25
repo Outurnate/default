@@ -11,8 +11,9 @@ addons:
       - g++-4.8
       - libstdc++-4.8-dev
       - clang-3.6
+      - ninja-build
     sources:
       - george-edison55-precise-backports
       - ubuntu-toolchain-r-test
       - llvm-toolchain-precise-3.6
-script: ./configure -DCMAKE_TOOLCHAIN_FILE=${POLLY_ROOT}/${BUILD_TOOLCHAIN}.cmake && make -Cbuild
+script: ./configure -GNinja && ninja -Cbuild
