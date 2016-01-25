@@ -1,9 +1,13 @@
 FILE(GLOB_RECURSE project_SRCS *.cpp *.cxx *.cc *.C *.c *.h *.hpp)
 SET(project_LIBS ${Boost_LIBRARIES})
 SET(project_BIN ${PROJECT_NAME})
+SET(project_MAIN main.cpp)
 
-ADD_EXECUTABLE(${project_BIN} ${project_SRCS})
-TARGET_LINK_LIBRARIES(${project_BIN} ${project_LIBS})
+LIST(REMOVE_ITEM project_SRCS ${project_MAIN})
+
+ADD_LIBRARY(project_CORE STATIC ${project_SRCS})
+ADD_EXECUTABLE(${project_BIN} ${project_MAIN})
+TARGET_LINK_LIBRARIES(${project_BIN} ${project_LIBS} project_CORE)
 SET_TARGET_PROPERTIES(${project_BIN} PROPERTIES VERSION "${APPLICATION_VERSION_MAJOR}.${APPLICATION_VERSION_MINOR}" OUTPUT_NAME ${project_BIN} CLEAN_DIRECT_OUTPUT 1)
 
 INSTALL(TARGETS ${project_BIN} DESTINATION bin)

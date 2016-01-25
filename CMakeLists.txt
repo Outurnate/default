@@ -64,6 +64,23 @@ ENDFOREACH(CONFIGINPUT ${CONFIGINPUTS})
 ADD_SUBDIRECTORY(src)
 
 #
+# Add Test Targets
+#
+FILE(GLOB project_tests ${MAINFOLDER}/test/*.cpp)
+
+ENABLE_TESTING()
+FIND_PACKAGE(GTest REQUIRED)
+INCLUDE_DIRECTORIES(${GTEST_INCLUDE_DIRS})
+
+FOREACH(testFile ${project_tests})
+    INCLUDE_DIRECTORIES(${MAINFOLDER}/include)
+    GET_FILENAME_COMPONENT(testExecutable ${testFile} NAME_WE)
+    ADD_EXECUTABLE(${testExecutable} ${testFile})
+    TARGET_LINK_LIBRARIES(${testExecutable} ${GTEST_BOTH_LIBRARIES} project_CORE)
+    ADD_TEST(NAME ${testExecutable} COMMAND ${MAINFOLDER}/bin/${testExecutable})
+ENDFOREACH(testFile)
+
+#
 # Doxygen
 #
 find_package(Doxygen)
