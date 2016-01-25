@@ -28,5 +28,6 @@ install:
   - cmake .
   - make
   - ls -Rlah .
+  - make DESTDIR="${TRAVIS_BUILD_DIR}" install
   - cd "${TRAVIS_BUILD_DIR}"
 script: ./configure -DCMAKE_BUILD_TYPE=${BUILD_TYPE} && make -Cbuild
