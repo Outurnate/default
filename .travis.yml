@@ -17,6 +17,7 @@ addons:
       - g++-4.8
       - libstdc++-4.8-dev
       - clang-3.6
+      - log4cxx-dev
     sources:
       - george-edison55-precise-backports
       - ubuntu-toolchain-r-test

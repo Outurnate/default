@@ -34,8 +34,12 @@ INCLUDE_DIRECTORIES(${MAINFOLDER}/include)
 #
 # Locate Project Prerequisites 
 #
-FIND_PACKAGE(Boost 1.40 COMPONENTS log log_setup thread system filesystem program_options unit_test_framework REQUIRED)
+FIND_PACKAGE(Boost 1.40 COMPONENTS system filesystem program_options unit_test_framework REQUIRED)
 INCLUDE_DIRECTORIES(${Boost_INCLUDE_DIR})
+
+FIND_PACKAGE(PkgConfig)
+PKG_CHECK_MODULES(LOG4CXX REQUIRED liblog4cxx)
+INCLUDE_DIRECTORIES(${LOG4CXX_INCLUDE_DIRS})
 
 #
 # Configure Files
