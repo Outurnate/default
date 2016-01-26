@@ -18,6 +18,7 @@ addons:
       - libstdc++-4.8-dev
       - clang-3.6
       - liblog4cxx10-dev
+      - doxygen
     sources:
       - george-edison55-precise-backports
       - ubuntu-toolchain-r-test
