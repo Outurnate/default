@@ -34,7 +34,7 @@ INCLUDE_DIRECTORIES(${MAINFOLDER}/include)
 #
 # Locate Project Prerequisites 
 #
-FIND_PACKAGE(Boost 1.40 COMPONENTS system filesystem program_options REQUIRED)
+FIND_PACKAGE(Boost 1.40 COMPONENTS system filesystem program_options unit_test_framework log REQUIRED)
 INCLUDE_DIRECTORIES(${Boost_INCLUDE_DIR})
 
 #
@@ -76,7 +76,7 @@ FOREACH(testFile ${project_tests})
     INCLUDE_DIRECTORIES(${MAINFOLDER}/include)
     GET_FILENAME_COMPONENT(testExecutable ${testFile} NAME_WE)
     ADD_EXECUTABLE(${testExecutable} ${testFile})
-    TARGET_LINK_LIBRARIES(${testExecutable} ${GTEST_BOTH_LIBRARIES} project_CORE)
+    TARGET_LINK_LIBRARIES(${testExecutable} ${Boost_LIBRARIES} project_CORE)
     ADD_TEST(NAME ${testExecutable} COMMAND ${MAINFOLDER}/bin/${testExecutable})
 ENDFOREACH(testFile)
 

@@ -17,17 +17,8 @@ addons:
       - g++-4.8
       - libstdc++-4.8-dev
       - clang-3.6
-      - libgtest-dev
     sources:
       - george-edison55-precise-backports
       - ubuntu-toolchain-r-test
       - llvm-toolchain-precise-3.6
-install:
-  - cp -r /usr/src/gtest .
-  - cd gtest
-  - cmake .
-  - make
-  - ls -Rlah .
-  - cp cmake_install.cmake libgtest.a libgtest_main.a ..
-  - cd "${TRAVIS_BUILD_DIR}"
 script: ./configure -DCMAKE_BUILD_TYPE=${BUILD_TYPE} && make -Cbuild
